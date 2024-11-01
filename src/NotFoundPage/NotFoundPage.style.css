@@ -1,0 +1,26 @@
+.NotFoundPage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.face-icon {
+    font-size: 150px;
+    margin-bottom: 40px;
+}
+
+.no-page {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.home-page {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(80, 123, 241);
+    cursor: pointer;
+}

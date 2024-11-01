@@ -1,0 +1,415 @@
+body {
+  background-color: #e9d9c8;
+}
+
+.nav-area {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+.nav-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  /* background-color: rgb(70, 62, 29);  */
+  background-color: #fdf9f3;
+  color: rgb(70, 62, 29);
+  border-radius: 0 0 40px 40px;
+}
+
+body {
+  padding-top: 134px; 
+}
+
+/* 로고 */
+.logo-area {
+  display: flex;
+  align-items: center;
+  margin-right: 60px;
+}
+
+.logo {
+  width: 40px;
+}
+
+.logo-name {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* 검색 영역 */
+.search-container {
+  display: flex;  
+  align-items: center;  
+  width: 300px;   
+  height: 40px;
+  border: 1px solid black;    
+  border-radius: 30px; 
+  margin-right: 50px;
+}
+
+/* 검색 입력창 */
+.search-txt {
+  flex: 1; 
+  border: none;
+  outline: none;
+  padding-left: 10px; 
+  border-top-left-radius: 30px;    
+  border-bottom-left-radius: 30px;  
+  height: 100%;
+  font-size: 15px;
+  text-indent: 10px;
+}
+
+/* 검색 버튼 */
+.search-btn {
+  border: none;                    
+  background-color: rgb(66, 151, 58); 
+  color: white;                    
+  padding: 0 15px;  
+  font-size: 16px;                
+  cursor: pointer;                 
+  border-top-right-radius: 30px;  
+  border-bottom-right-radius: 30px; 
+  transition: background-color 0.3s; 
+  height: 100%; 
+}
+
+.search-btn:hover {
+  background-color: #62b159;       
+}
+
+.search-btn:focus {
+  outline: none;                   
+}
+
+/* 레시피담기 및 로그인 영역 */
+.recipe-area {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  font-weight: bold;
+  margin: 0;
+}
+
+.recipe-item {
+  margin-right: 30px;
+}
+
+.icon-container {
+  position: relative;
+  margin-left: 10px;
+}
+
+.add-counter {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: rgb(66, 151, 58);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.user-icon {
+  margin-right: 10px;
+}
+
+.recipe-area li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 메뉴 스타일 */
+.menu-list {
+  display: flex;
+  justify-content: center;
+  /* border-bottom: 1px solid black; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px;
+  border-radius: 0 0 40px 40px;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.menu-items {
+  position: relative; 
+  padding: 0 10px;
+  text-decoration: none;
+  color: rgb(70, 62, 29);
+}
+
+.menu-items:hover {
+  color: rgb(36, 153, 98);
+}
+
+/* 커스텀 드롭다운 스타일 */
+.custom-dropdown {
+  position: relative;
+}
+
+.custom-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  background-color: rgba(53, 104, 70, 0.877);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0; 
+  margin: 0;
+  z-index: 1000;
+  width: 120px; 
+  border-radius: 5px;
+}
+
+.dropdown-menu li a {
+  color: #fff;
+} 
+
+/* 드롭다운 아이템 스타일 */
+.dropdown-item {
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+  padding: 10px 20px;
+  text-align: left; 
+  font-size: 14px;
+}
+
+.dropdown-item:hover {
+  background-color: #78ac6352;
+  border-radius: 5px;
+  color: #fff;
+}
+
+/* 푸터영역 */
+footer{
+  background-color: antiquewhite;
+  color: #7e4444;
+  font-size: 14px;
+}
+
+.footer-layer1 {
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(88, 88, 88, 0.521);
+}
+
+.footer-layer1 a{
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  color: #7e4444;
+  transition: color 0.5  s ease;
+  &:hover {
+    color: rgb(172, 168, 168);
+  }
+}
+
+.footer-layer2 {
+  max-width: 100%;
+}
+
+.footer-layer2-area {
+  max-width: 1296px;
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.footer-layer3 {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid  rgba(88, 88, 88, 0.521);
+}
+
+.footer-title-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 25px;
+  height: 30px;
+}
+
+.footer-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.footer-layer3 p, .footer-icons{
+  margin: 7px 0;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.naver-icon, .github-icon {
+  width: 22px;
+}
+
+.naver-icon {
+  fill: #03C75A;
+}
+
+.github-icon {
+  fill: #181717;
+}
+
+/* 반응형 미디어 쿼리 */
+@media (max-width: 900px) {
+  .footer-layer2-area {
+    gap: 17px;
+    margin: 10px 0;
+  }
+
+  .footer-layer2-area p {
+    margin-bottom: 10px;
+  }
+
+  .footer-layer3 p, .footer-icons{
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 830px) {
+  .logo-area {
+    margin-right: 20px;
+  }
+
+  .logo {
+    width: 30px;
+  }
+
+  .logo-name {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .search-container {
+    width: 220px;
+    height: 35px;
+    margin-right: 10px;
+  }
+
+  .search-txt {
+    flex: 1;
+    font-size: 14px;
+  }
+
+  .search-btn {
+    padding: 3px 9px;
+  }
+
+  .menu-items, .recipe-area {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    font-size: 13px;
+  }
+
+  .footer-title {
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 607px) {
+  .recipe-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px;
+  }
+
+  .recipe-item {
+    margin: 0 0 10px 0;
+  }
+
+  .footer-layer2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 498px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  .logo-area {
+    margin-right: 10px;
+  }
+
+  .logo {
+    width: 20px;
+  }
+
+  .logo-name {
+    font-size: 15px;
+  }
+
+  .search-container {
+    width: 150px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .search-txt {
+    flex: 1;
+    font-size: 8px;
+  }
+
+  .search-btn {
+    padding: 2px 7px;
+    font-size: 10px;
+  }
+
+  .menu-items, .recipe-area {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 503px) {
+  .footer-layer2-area {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+
+  }
+
+  .footer-title-area {
+    width: 100%;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .naver-icon, .github-icon {
+    width: 15px;
+  }
+}

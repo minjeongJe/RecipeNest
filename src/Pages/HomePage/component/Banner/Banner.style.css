@@ -1,0 +1,114 @@
+body {
+  margin-top: 50px;
+}
+
+/* 로딩스피너 */
+.loading-banner {
+  display: flex;
+  justify-content: center;
+}
+
+.loading-spinner {
+  width: 100px; 
+  height: 100px; 
+}
+
+.main-banner {
+  max-width: 100%;
+  background-color: rgba(209, 145, 25, 0.8); 
+  border-radius: 30px 30px 80px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(212, 211, 198, 0.692), transparent);
+  border-radius: 30px 30px 80px 80px;;
+}
+
+.banner-title {
+  position: relative;
+  z-index: 2; 
+  width: 100%;
+  color: #fff;
+  background-color: rgb(158, 119, 46);
+  text-align: center;
+  padding: 8px 0;
+  font-size: 15px;
+
+}
+
+/* 케러셀 스타일 */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 700px;
+}
+
+.mySwiper {
+  height: 52vh;
+  max-width: 600px;
+  min-height: 600px;
+}
+
+.meal-image {
+  border-radius: 50%;
+  width: 100%; 
+  height: auto;
+}
+
+.swiper {
+  margin: 0;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgb(70, 62, 29);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #bd7509; 
+}
+
+.swiper-pagination-bullet {
+  background: rgb(109, 92, 22); 
+}
+
+.swiper-pagination-bullet-active {
+  background: rgb(70, 62, 29);
+}
+
+.meal-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  max-width: 300px;
+  padding: 0 20px;
+  text-align: left;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .loading-spinner {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .carousel-container {
+    flex-direction: column;
+  }
+
+  .meal-title {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
