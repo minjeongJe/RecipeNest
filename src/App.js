@@ -5,6 +5,7 @@ import AppLayout from './Layout/AppLayout';
 import HomePage from './Pages/HomePage/HomPage';
 import RecipeDetailPage from './Pages/RecipeDetailPage/RecipeDetailPage'
 import NotFoundPage from './NotFoundPage/NotFoundPage';
+import CategoriesPage from './Pages/HomePage/Categories/CategoriesPage';
 
 // 홈페이지 /
 // 음식 레시피 디테일 페이지 /recipe/:id
@@ -14,7 +15,8 @@ function App() {
     <Routes>
       <Route path = "/" element = {<AppLayout />}>
         <Route index element = {<HomePage />}/>
-        <Route path='recipe'>
+        <Route path='/recipe'>
+          <Route index element = {<CategoriesPage /> }/>
           <Route path=':id' element = {<RecipeDetailPage /> }/>
         </Route>
       </Route>

@@ -5,16 +5,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 import { faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Outlet } from 'react-router-dom';
+import { useCategoriesQuery } from '../Hook/usecategories';
+import { useNavigate } from 'react-router-dom';
 
 const AppLayout = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  // const {data} = useCategoriesQuery()
+  // console.log("ccc",data)
+  // const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const Navigate = useNavigate();
+  const goToHomePage = () => {
+    Navigate("/");
+  }
 
   return (
     <div>
       <nav className="nav-container" role="navigation" aria-label="Main navigation">
         <div className="nav-area">
-          <div className="logo-area">
-            <img src={Logo} alt="RecipeNest Logo" className="logo" />
+          <div className="logo-area" onClick={goToHomePage}>
+            <img src={Logo} alt="RecipeNest Logo" className="logo"/>
             <h1 className="logo-name">RecipeNest</h1>
           </div>
           <form className="search-area" role="search" aria-label="Search recipes">
@@ -47,7 +56,7 @@ const AppLayout = () => {
           </ul>
         </div>
         <ul className="menu-list" role="menu" aria-label="Main categories">
-          <li
+          {/* <li
             className="custom-dropdown"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
@@ -63,7 +72,16 @@ const AppLayout = () => {
             )}
           </li>
           <li><a href="/something1" className="menu-items">뿌루루루</a></li>
-          <li><a href="/something2" className="menu-items">이것저것</a></li>
+          <li><a href="/something2" className="menu-items">이것저것</a></li> */}
+        
+          <li><a href="/recipe" className="menu-items">Category</a></li>
+          {/* {data?.categories?.map((category) => (
+                  <li key={category.idCategory} role="menuitem">
+                    <a href={`/category/${category.strCategory}`} className="dropdown-item">
+                      {category.strCategory}
+                    </a>
+                  </li>
+          ))} */}
         </ul>
       </nav>
       <Outlet />

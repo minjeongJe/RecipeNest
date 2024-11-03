@@ -31,6 +31,7 @@ body {
   display: flex;
   align-items: center;
   margin-right: 60px;
+  cursor: pointer;
 }
 
 .logo {
@@ -280,6 +281,12 @@ footer{
 }
 
 /* 반응형 미디어 쿼리 */
+@media (max-width: 1384px) {
+  .footer-layer2-area {
+    max-width: 900px;
+  }
+} 
+
 @media (max-width: 900px) {
   .footer-layer2-area {
     gap: 17px;
@@ -337,6 +344,10 @@ footer{
   .footer-title {
     font-size: 15px;
     font-weight: bold;
+  }
+
+  .search-txt {
+    font-size: 12px;
   }
 }
 
