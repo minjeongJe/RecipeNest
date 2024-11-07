@@ -27,7 +27,7 @@ const CategoriesPage = () => {
   }
 
   return (
-    <Container>
+    <Container>  
       {/* 전체 카테고리 메뉴 */}
       <ul className="categorie">
         {data?.categories?.map((category) => (

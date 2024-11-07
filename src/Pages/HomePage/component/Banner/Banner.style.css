@@ -19,6 +19,7 @@ body {
   border-radius: 30px 30px 80px 80px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .main-banner::before {

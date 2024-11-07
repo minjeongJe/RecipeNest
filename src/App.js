@@ -15,9 +15,9 @@ function App() {
     <Routes>
       <Route path = "/" element = {<AppLayout />}>
         <Route index element = {<HomePage />}/>
-        <Route path='/recipe'>
+        <Route path="recipe">
           <Route index element = {<CategoriesPage /> }/>
-          <Route path=':id' element = {<RecipeDetailPage /> }/>
+          <Route path=":id" element = {<RecipeDetailPage /> }/>
         </Route>
       </Route>
       <Route path = "/*" element = {<NotFoundPage />} />
