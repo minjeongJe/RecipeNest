@@ -53,8 +53,7 @@ const Banner = () => {
 
   return (
     <Container className="banner">
-      {/* main-banner 클릭 시 현재 음식 ID로 디테일 페이지 이동 */}
-      <div className='main-banner' onClick={() => goToDetailPage(currentMealId)}>
+      <div className='main-banner'>
         <h1 className='banner-title'>Experience a variety of recipes that delight both your eyes and taste buds</h1>
         <div className="carousel-container">
           <h2 className="meal-title" onClick={(e) => {

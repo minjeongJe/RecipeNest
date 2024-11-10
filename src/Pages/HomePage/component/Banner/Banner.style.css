@@ -55,9 +55,8 @@ body {
 }
 
 .mySwiper {
-  height: 52vh;
   max-width: 600px;
-  min-height: 600px;
+  max-height: 600px;
 }
 
 .meal-image {

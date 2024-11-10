@@ -4,6 +4,7 @@ import { useRecipeDetailQuery } from '../../Hook/useRecipeDetail';
 import { Alert, Container } from 'react-bootstrap';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import './RecipeDetailPage.style.css';
+import YouTube from 'react-youtube';
 
 const RecipeDetailPage = () => {
   const { id } = useParams(); 
@@ -45,6 +46,9 @@ const RecipeDetailPage = () => {
     }
   }
 
+   {/* YouTube 비디오 ID 추출 */}
+   const videoId = meal.strYoutube ? meal.strYoutube.split('v=')[1] : null;
+
   return (
     <Container>
       <div className='recipe-detail'>
@@ -73,17 +77,29 @@ const RecipeDetailPage = () => {
         </div>
         
         {/* 레시피 설명 */}
-        <h3>Instructions</h3>
-        <div className='recipe-description'>{meal.strInstructions}</div>
+        <h3 className='recipe-instructions'>Instructions</h3>
+        <div>{meal.strInstructions}</div>
 
         {/* 소스 링크 */}
         {meal.strSource && <p>Source: <a href={meal.strSource} target="_blank" rel="noopener noreferrer">Visit Recipe Source</a></p>}
 
         {/* YouTube 링크 */}
-        {meal.strYoutube && <p>Watch on YouTube: <a href={meal.strYoutube} target="_blank" rel="noopener noreferrer">Video Tutorial</a></p>}
+        {meal.strYoutube && <p>Watch on YouTube: <a href={meal.strYoutube} target="_blank"  rel="noopener noreferrer">Video Tutorial</a></p>}
+        
+        <YouTube
+          videoId={videoId}
+          opts={{
+            videoId:"meal.strYoutube",
+            width: "560",
+            height: "315",
+            playerVars: {
+              rel: 0 //관련 동영상 표시하지 않기
+            },
+          }}
+        />
       </div>
     </Container>
-  );
+  );      
 };
 
 export default RecipeDetailPage;

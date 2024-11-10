@@ -1,3 +1,7 @@
+.recipe-detail {
+    background-color: #f8e8d5;
+}
+
 .error-alert {
     display: flex;
     justify-content: center;
@@ -9,7 +13,6 @@
     background-color: rgb(158, 119, 46);
     margin: 0;
     border-radius: 20px 20px 0 0;
-    /* color: #fff; */
     font-size: 26px;
     font-weight: bold;
 }
@@ -36,8 +39,10 @@
     margin: 10px 0;   
 }
 
-.recipe-items span, .recipe-items-area h3 {
-    font-size: 23px;;
+.recipe-items span, 
+.recipe-items-area h3,
+.recipe-instructions {
+    font-size: 23px;
     font-weight: bold;
 }
 
