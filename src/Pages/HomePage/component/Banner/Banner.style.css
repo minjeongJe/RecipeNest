@@ -1,16 +1,27 @@
-body {
-  margin-top: 50px;
+/* 에러창 */
+.alert-danger {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1296px;
 }
 
 /* 로딩스피너 */
 .loading-banner {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  width: 100vw; 
 }
 
 .loading-spinner {
-  width: 100px; 
-  height: 100px; 
+  width: 130px; 
+  height: 130px;
+}
+
+.banner {
+  margin-top: 50px;
 }
 
 .main-banner {
@@ -20,6 +31,7 @@ body {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  margin-bottom: 60px;
 }
 
 .main-banner::before {
@@ -40,9 +52,8 @@ body {
   color: #fff;
   background-color: rgb(158, 119, 46);
   text-align: center;
-  padding: 8px 0;
+  padding: 13px 0;
   font-size: 15px;
-
 }
 
 /* 케러셀 스타일 */

@@ -10,8 +10,8 @@ export const useRecipeDetailQuery = (id) => {
         queryKey: ['recipe-detail', id],
         queryFn: () => fetchRecipeDetail(id),
         select: (result) => result.data,
+        staleTime: 300000, // 5분
     })
 }
-
 
 

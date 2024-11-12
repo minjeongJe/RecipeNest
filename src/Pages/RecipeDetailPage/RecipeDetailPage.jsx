@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRecipeDetailQuery } from '../../Hook/useRecipeDetail';
 import { Alert, Container } from 'react-bootstrap';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import './RecipeDetailPage.style.css';
 import YouTube from 'react-youtube';
+import './RecipeDetailPage.style.css';
+
+const MAX_LENGTH = 350; // Define maximum character length
 
 const RecipeDetailPage = () => {
-  const { id } = useParams(); 
+  const { id } = useParams();
   const { data, isLoading, isError, error } = useRecipeDetailQuery(id);
+  const [isShowText, setIsShowText] = useState(false); 
 
+  const onClickMoreDesc = () => {
+    setIsShowText((prevState) => !prevState);
+  };
+
+  // Loading 상태 표시
   if (isLoading) {
     return (
       <div className="loading-banner">
@@ -23,9 +31,10 @@ const RecipeDetailPage = () => {
     );
   }
 
+  // Error 상태 표시
   if (isError) {
     return (
-      <Alert variant="danger" className='error-alert'>
+      <Alert variant="danger" className="error-alert">
         {error.message}
       </Alert>
     );
@@ -36,70 +45,81 @@ const RecipeDetailPage = () => {
     return <Alert variant="warning">No recipe data available.</Alert>;
   }
 
-  // Ingredients와 Measures 배열을 결합하기
-  const ingredients = [];
-  for (let i = 1; i <= 20; i++) {
-    const ingredient = meal[`strIngredient${i}`];
-    const measure = meal[`strMeasure${i}`];
-    if (ingredient && ingredient !== "" && measure && measure !== "") {
-      ingredients.push(`${ingredient} (${measure})`);
-    }
-  }
+  // 재료 목록 배열 생성
+  const ingredients = Array.from({ length: 20 }, (_, i) => {
+    const ingredient = meal[`strIngredient${i + 1}`];
+    const measure = meal[`strMeasure${i + 1}`];
+    return ingredient && measure ? `${ingredient} (${measure})` : null;
+  }).filter(Boolean);
 
-   {/* YouTube 비디오 ID 추출 */}
-   const videoId = meal.strYoutube ? meal.strYoutube.split('v=')[1] : null;
+  // YouTube 비디오 ID 추출
+  const videoId = meal.strYoutube?.split('v=')[1];
 
   return (
-    <Container>
-      <div className='recipe-detail'>
-        <h2 className='recipe-title'>{meal.strMeal}</h2>
-        <div className='recipe-detail-area'>
-          <img src={meal.strMealThumb} alt={meal.strMeal} className='meal-img'/>
-          <div className='recipe-items-area'>
-            <div className='recipe-items'>
-              <span>Category:</span> {meal.strCategory}
-            </div>
-            <div className='recipe-items food-area'>
-              <span>Area:</span> {meal.strArea}
-            </div>
-          
-            {/* 재료 목록 표시 */}
+    <Container className="recipe-detail">
+      <h2 className="recipe-title">{meal.strMeal}</h2>
+
+      {/* 메인 레시피 영역 */}
+      <div className="recipe-detail-area">
+        
+        {/* 이미지 및 기본 정보 */}
+        <div className="recipe-items-area">
+          <img src={meal.strMealThumb} alt={meal.strMeal} className="meal-img" />
+          <div className="recipe-items">
+            <p><span>Category:</span> {meal.strCategory}</p>
+            <p><span>Area:</span> {meal.strArea}</p>
+
+            {/* 재료 목록 */}
             <h3>Ingredients</h3>
-            <ul className='recipe-ingredients'>
+            <ul className="recipe-ingredients">
               {ingredients.map((ingredient, index) => (
-                <li key={index}>
-                  {ingredient}
-                  {index < ingredients.length - 1 && ", "}   
-                </li>
+                <li key={index}>{ingredient}</li>
               ))}
             </ul>
-          </div>    
+          </div>
         </div>
-        
+
         {/* 레시피 설명 */}
-        <h3 className='recipe-instructions'>Instructions</h3>
-        <div>{meal.strInstructions}</div>
+        <div className="recipe-instructions-area">
+          <h3>Instructions</h3>
+          <div className="instructions">
+            <p>
+              {meal.strInstructions.length > MAX_LENGTH && !isShowText
+                ? `${meal.strInstructions.slice(0, MAX_LENGTH)}...`
+                : meal.strInstructions}
+              {meal.strInstructions.length > MAX_LENGTH && (
+                <button onClick={onClickMoreDesc} className="more-button">
+                  {isShowText ? '접기' : '더보기'}
+                </button>
+              )}
+            </p>
+          </div>
+        </div>
 
-        {/* 소스 링크 */}
-        {meal.strSource && <p>Source: <a href={meal.strSource} target="_blank" rel="noopener noreferrer">Visit Recipe Source</a></p>}
+        {/* 출처 링크 */}
+        {meal.strSource && (
+          <p className='recipe-source'>
+            Source: <a href={meal.strSource} target="_blank" rel="noopener noreferrer" className='recipe-source-name'>Visit Recipe Source</a>
+          </p>
+        )}
 
-        {/* YouTube 링크 */}
-        {meal.strYoutube && <p>Watch on YouTube: <a href={meal.strYoutube} target="_blank"  rel="noopener noreferrer">Video Tutorial</a></p>}
-        
-        <YouTube
-          videoId={videoId}
-          opts={{
-            videoId:"meal.strYoutube",
-            width: "560",
-            height: "315",
-            playerVars: {
-              rel: 0 //관련 동영상 표시하지 않기
-            },
-          }}
-        />
+        {/* YouTube 비디오 */}
+        {videoId && (
+          <div className='youtube-area'>
+            <h4>Watch on YouTube</h4>
+            <YouTube
+              videoId={videoId}
+              opts={{
+                width: "560",
+                height: "315",
+                playerVars: { rel: 0 },
+              }}
+            />
+          </div>
+        )}
       </div>
     </Container>
-  );      
+  );
 };
 
 export default RecipeDetailPage;

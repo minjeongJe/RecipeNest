@@ -6,6 +6,11 @@ const HomPage = () => {
   return (
     <div>
       <Banner/>
+      <div>ㅎ</div>
+      <div>ㅎ</div>
+      <div>ㅎ</div>
+      <div>ㅎ</div>
+      <div>ㅎ</div>
     </div>
   )
 }

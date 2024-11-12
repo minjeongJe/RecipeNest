@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
 import './AppLayout.style.css';
 import Logo from '../images/Logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 import { faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Outlet } from 'react-router-dom';
-import { useCategoriesQuery } from '../Hook/usecategories';
 import { useNavigate } from 'react-router-dom';
 
 const AppLayout = () => {
-  // const {data} = useCategoriesQuery()
-  // console.log("ccc",data)
-  // const [isDropdownOpen, setDropdownOpen] = useState(false);
-
   const Navigate = useNavigate();
   const goToHomePage = () => {
     Navigate("/");
@@ -56,35 +50,12 @@ const AppLayout = () => {
           </ul>
         </div>
         <ul className="menu-list" role="menu" aria-label="Main categories">
-          {/* <li
-            className="custom-dropdown"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-            aria-expanded={isDropdownOpen}
-          >
-            <span className="custom-toggle menu-items">Category</span>
-            {isDropdownOpen && (
-              <ul className="dropdown-menu" role="menu">
-                <li role="menuitem"><a href="/category-1" className="dropdown-item">Category 1</a></li>
-                <li role="menuitem"><a href="/category-2" className="dropdown-item">Category 2</a></li>
-                <li role="menuitem"><a href="/category-3" className="dropdown-item">Category 3</a></li>
-              </ul>
-            )}
-          </li>
-          <li><a href="/something1" className="menu-items">뿌루루루</a></li>
-          <li><a href="/something2" className="menu-items">이것저것</a></li> */}
-        
           <li><a href="/recipe" className="menu-items">Category</a></li>
-          {/* {data?.categories?.map((category) => (
-                  <li key={category.idCategory} role="menuitem">
-                    <a href={`/category/${category.strCategory}`} className="dropdown-item">
-                      {category.strCategory}
-                    </a>
-                  </li>
-          ))} */}
         </ul>
       </nav>
-      <Outlet />
+      <div className="main-content">
+        <Outlet /> 
+      </div>
       <footer className="footer-container">
         <div className="footer-layer1">
           <div>

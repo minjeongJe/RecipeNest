@@ -2,6 +2,7 @@ body {
   background-color: #e9d9c8;
 }
 
+/* 네브바 */
 .nav-area {
   display: flex;
   justify-content: space-evenly;
@@ -15,15 +16,10 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
-  /* background-color: rgb(70, 62, 29);  */
+  z-index: 1000; 
   background-color: #fdf9f3;
   color: rgb(70, 62, 29);
   border-radius: 0 0 40px 40px;
-}
-
-body {
-  padding-top: 134px; 
 }
 
 /* 로고 */
@@ -137,7 +133,6 @@ body {
 .menu-list {
   display: flex;
   justify-content: center;
-  /* border-bottom: 1px solid black; */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px;
   border-radius: 0 0 40px 40px;
   padding: 10px 0;
@@ -199,11 +194,20 @@ body {
   color: #fff;
 }
 
+.main-content {
+  padding-top: 134px; 
+}
+
 /* 푸터영역 */
 footer{
+  width: 100%;
   background-color: antiquewhite;
   color: #7e4444;
   font-size: 14px;
+}
+.content {
+  padding-top: 20px; 
+  padding-bottom: 20px; 
 }
 
 .footer-layer1 {
