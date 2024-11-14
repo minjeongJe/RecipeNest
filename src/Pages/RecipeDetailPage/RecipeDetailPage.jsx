@@ -6,7 +6,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import YouTube from 'react-youtube';
 import './RecipeDetailPage.style.css';
 
-const MAX_LENGTH = 350; // Define maximum character length
+const MAX_LENGTH = 350; 
 
 const RecipeDetailPage = () => {
   const { id } = useParams();
@@ -104,19 +104,20 @@ const RecipeDetailPage = () => {
         )}
 
         {/* YouTube 비디오 */}
-        {videoId && (
-          <div className='youtube-area'>
-            <h4>Watch on YouTube</h4>
+        <div className='youtube-container'>
+          <h4 className='youtube-title'>Watch on YouTube</h4>
+          {videoId && (
+          <div className="youtube-wrapper">
             <YouTube
               videoId={videoId}
+              className="youtube-iframe"
               opts={{
-                width: "560",
-                height: "315",
                 playerVars: { rel: 0 },
               }}
             />
           </div>
-        )}
+          )}
+        </div>
       </div>
     </Container>
   );

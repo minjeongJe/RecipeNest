@@ -3,15 +3,6 @@ body {
 }
 
 /* 네브바 */
-.nav-area {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  margin: 20px 0;
-  box-sizing: border-box;
-}
-
 .nav-container {
   position: fixed;
   top: 0;
@@ -20,6 +11,15 @@ body {
   background-color: #fdf9f3;
   color: rgb(70, 62, 29);
   border-radius: 0 0 40px 40px;
+}
+
+.nav-area {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  box-sizing: border-box;
 }
 
 /* 로고 */
@@ -232,10 +232,10 @@ footer{
   max-width: 100%;
 }
 
-.footer-layer2-area {
+.footer-layer2 {
   max-width: 1296px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 80px;
   padding: 10px 0;
   margin: 0 auto;
@@ -260,6 +260,7 @@ footer{
 
 .footer-title {
   font-size: 20px;
+  font-weight: bold;
   margin: 0;
 }
 
@@ -285,45 +286,26 @@ footer{
 }
 
 /* 반응형 미디어 쿼리 */
-@media (max-width: 1384px) {
-  .footer-layer2-area {
-    max-width: 900px;
-  }
-} 
-
-@media (max-width: 900px) {
-  .footer-layer2-area {
-    gap: 17px;
-    margin: 10px 0;
+@media (max-width: 833px) {
+  .nav-area {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
   }
 
-  .footer-layer2-area p {
-    margin-bottom: 10px;
-  }
-
-  .footer-layer3 p, .footer-icons{
-    margin: 5px 0;
-  }
-}
-
-@media (max-width: 830px) {
   .logo-area {
-    margin-right: 20px;
-  }
-
-  .logo {
-    width: 30px;
+    margin: 0 0 15px 0;
   }
 
   .logo-name {
-    font-size: 20px;
-    margin: 0;
+    font-size: 23px;
   }
 
   .search-container {
-    width: 220px;
-    height: 35px;
-    margin-right: 10px;
+    width: 400px;
+    height: 33px;
+    margin: 0 0 20px 0;
   }
 
   .search-txt {
@@ -331,14 +313,21 @@ footer{
     font-size: 14px;
   }
 
-  .search-btn {
-    padding: 3px 9px;
+  .footer-layer2 {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    align-items: center;
   }
 
-  .menu-items, .recipe-area {
+  .footer-layer2, .footer-layer3 {
     font-size: 13px;
   }
-}
+
+  .footer-title {
+    font-size: 18px;
+  }
+} 
 
 @media (max-width: 768px) {
   footer {
@@ -356,17 +345,6 @@ footer{
 }
 
 @media (max-width: 607px) {
-  .recipe-area {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 10px;
-  }
-
-  .recipe-item {
-    margin: 0 0 10px 0;
-  }
-
   .footer-layer2 {
     text-align: center;
   }
@@ -411,13 +389,6 @@ footer{
 }
 
 @media (max-width: 503px) {
-  .footer-layer2-area {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-
-  }
-
   .footer-title-area {
     width: 100%;
     font-weight: bold;

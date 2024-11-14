@@ -1,4 +1,4 @@
-.categorie {
+.category {
   display: flex;
   flex-wrap: wrap; 
   justify-content: center;
@@ -37,7 +37,11 @@
   margin-bottom: 20px;
 }
 
-.prv-page {
+.all-categories {
+  margin-bottom: 40px;
+}
+
+.pre-page {
   border-radius: 30px;
   background-color: #6ba366;
   color: #fff;
@@ -49,3 +53,8 @@
   margin: 20px;
 }
 
+@media (max-width: 833px) {
+  .category-page {
+    margin-top: 100px;
+  }
+}

@@ -27,9 +27,9 @@ const CategoriesPage = () => {
   }
 
   return (
-    <Container>  
+    <Container className='category-page'>  
       {/* 전체 카테고리 메뉴 */}
-      <ul className="categorie">
+      <ul className="category">
         {data?.categories?.map((category) => (
           <li key={category.idCategory} role="menuitem">
             <a
@@ -58,7 +58,7 @@ const CategoriesPage = () => {
           <p>{selectedCategory.strCategoryDescription}</p>
 
           {/* 선택된 카테고리 해제 버튼 */}
-          <button className='prv-page'  onClick={() => setSelectedCategory(null)}>Return</button>
+          <button className='pre-page'  onClick={() => setSelectedCategory(null)}>Return</button>
         </div>
       ) : (
         <div className="all-categories">

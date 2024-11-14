@@ -41,11 +41,9 @@ const AppLayout = () => {
                 <div className="add-counter">0</div>
               </div>
             </li>
-            <li role="menuitem" aria-label="Login">
-              <div>
-                <FontAwesomeIcon icon={faUser} className="user-icon" />
-                <span>Login</span>
-              </div>
+            <li role="menuitem" aria-label="Login" className="login-area">
+              <FontAwesomeIcon icon={faUser} className="user-icon"/>
+              <span className='login-area'>Login</span>
             </li>
           </ul>
         </div>
@@ -67,7 +65,6 @@ const AppLayout = () => {
           </div>
         </div>
         <div className="footer-layer2">
-          <div className="footer-layer2-area">
             <h2 className="footer-title-area">
               <img src={Logo} alt="Footer Logo" className="footer-logo" />
               <div className="footer-title">RecipeNest</div>
@@ -80,8 +77,7 @@ const AppLayout = () => {
             <div>
               <p>Tell: 5555-7777</p>
               <p>Email: jeminjeong123@gmail.com</p>
-            </div>
-          </div>
+            </div> 
         </div>
         <div className="footer-layer3">
           <p>&copy; 2024 RecipeNest FOOD Inc. ALL RIGHTS RESERVED</p>
