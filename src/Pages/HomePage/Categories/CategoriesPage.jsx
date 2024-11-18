@@ -28,6 +28,7 @@ const CategoriesPage = () => {
 
   return (
     <Container className='category-page'>  
+      <div className='category-title'>Food type and description</div>
       {/* 전체 카테고리 메뉴 */}
       <ul className="category">
         {data?.categories?.map((category) => (
@@ -63,7 +64,7 @@ const CategoriesPage = () => {
       ) : (
         <div className="all-categories">
           {data?.categories?.map((category) => (
-            <div key={category.idCategory} className='categories-items'>
+            <div key={category.idCategory} className='categories-items' onClick={() => setSelectedCategory(category)}>
               <img src={category.strCategoryThumb} alt={category.strCategory} />
               <p>{category.strCategory}</p>
             </div>

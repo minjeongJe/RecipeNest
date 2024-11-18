@@ -52,6 +52,7 @@ const Banner = () => {
   }
 
   return (
+    /* 랜덤 레시피 */
     <Container className="banner">
       <div className='main-banner'>
         <h1 className='banner-title'>Experience a variety of recipes that delight both your eyes and taste buds</h1>

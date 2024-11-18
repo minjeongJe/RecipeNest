@@ -1,3 +1,14 @@
+.category-page {
+  margin-top: 50px;
+}
+
+.category-title {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-indent: 30px;
+}
+
 .category {
   display: flex;
   flex-wrap: wrap; 
@@ -27,7 +38,11 @@
 }
 
 .category-detail p {
-  margin-bottom: 30px
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 200px;
 }
 
 .category-thumbnail {
@@ -51,10 +66,15 @@
 
 .categories-items {
   margin: 20px;
+  cursor: pointer;
 }
 
 @media (max-width: 833px) {
   .category-page {
     margin-top: 100px;
+  }
+
+  .category-title {
+    font-size: 18px;
   }
 }

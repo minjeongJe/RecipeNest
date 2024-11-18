@@ -73,7 +73,10 @@ const RecipeDetailPage = () => {
             <h3>Ingredients</h3>
             <ul className="recipe-ingredients">
               {ingredients.map((ingredient, index) => (
-                <li key={index}>{ingredient}</li>
+                <li key={index}>
+                  {ingredient}
+                  {index < ingredients.length - 1 && ' , '}
+                </li>
               ))}
             </ul>
           </div>
