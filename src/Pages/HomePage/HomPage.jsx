@@ -1,12 +1,12 @@
 import React from 'react'
 import Banner from './component/Banner/Banner'
+import BeefMealRecommend from './component/BeefMealRecommendSlide/BeefMealRecommend'
 
-//1. Banner -> 
 const HomPage = () => {
   return (
     <div>
       <Banner/>
-      <div>ㅎ</div>
+      <BeefMealRecommend/>
       <div>ㅎ</div>
       <div>ㅎ</div>
       <div>ㅎ</div>

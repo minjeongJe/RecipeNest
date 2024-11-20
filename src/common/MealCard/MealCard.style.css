@@ -1,0 +1,38 @@
+.mealCard-container {
+    max-width: 250px;
+    height: 300px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.mealCard-items > div {
+    height: 30px;
+    text-align: right;
+    padding: 20px 20px 0 0;
+}
+
+.beef-recipe-title {
+    height: 50px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    
+}
+
+.mealCard-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: rgba(62, 63, 63, 0.548);
+    border-radius: 20px;
+    opacity: 0;
+    transition:  all 0.7s;
+    &:hover {
+        opacity: 1;
+    }
+}
