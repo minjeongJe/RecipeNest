@@ -4,6 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import MealCard from '../MealCard/MealCard';
 import { responsive } from '../../constants/responsive';
 import { Container } from 'react-bootstrap';
+import './MealSlider.style.css';
 
 
 // 응답형 설정 정의
@@ -16,7 +17,7 @@ const mealSlider = ({ data, title }) => {
 
   return (
     <Container>
-      <h3>{title}</h3>
+      <h3 className='slider-title'>{title}</h3>
       <Carousel
         infinite={true}
         centerMode={true}

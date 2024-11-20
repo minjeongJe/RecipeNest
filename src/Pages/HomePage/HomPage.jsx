@@ -1,13 +1,14 @@
 import React from 'react'
 import Banner from './component/Banner/Banner'
-import BeefMealRecommend from './component/BeefMealRecommendSlide/BeefMealRecommend'
+import BeefMealSlide from './component/BeefMealSlide/BeefMealSlide'
+import VeGanMealSlide from './component/VeGanMealSlide/VeGanMealSlide'
 
 const HomPage = () => {
   return (
     <div>
       <Banner/>
-      <BeefMealRecommend/>
-      <div>ㅎ</div>
+      <BeefMealSlide/>
+      <VeGanMealSlide/>
       <div>ㅎ</div>
       <div>ㅎ</div>
       <div>ㅎ</div>
