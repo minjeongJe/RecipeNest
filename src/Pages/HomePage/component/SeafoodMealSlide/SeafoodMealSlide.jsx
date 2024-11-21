@@ -1,16 +1,16 @@
 import React from 'react'
-import { useBeefMealRecommendQuery } from '../../../../Hook/useBeefMeal';
-import 'react-multi-carousel/lib/styles.css';
-import MealSlider from '../../../../common/MealSlider/MealSlider';
-import { responsive } from '../../../../constants/responsive';
+import { useSeafoodQuery } from '../../../../Hook/useSeafoodMeal';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Alert } from 'react-bootstrap';
+import { responsive } from '../../../../constants/responsive';
+import MealSlider from '../../../../common/MealSlider/MealSlider';
 
-const BeefMealRecommend = () => {
-  const { data, isLoading, isError, error } = useBeefMealRecommendQuery();
+
+const SeafoodMealSlide = () => {
+  const {data, isLoading, isError, error} = useSeafoodQuery();
 
   if (isLoading) {
     return (
@@ -34,10 +34,10 @@ const BeefMealRecommend = () => {
   }
 
   return (
-    <div className='beef-recipe'>
-      <MealSlider data={data} responsive={responsive} title="Beef Recipe" />
+    <div className='seafood-recipe'>
+      <MealSlider data={data} responsive={responsive} title="seafood Recipe" />
     </div>
-  );
+  )
 }
 
-export default BeefMealRecommend
+export default SeafoodMealSlide

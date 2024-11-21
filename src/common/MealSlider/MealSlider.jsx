@@ -7,8 +7,6 @@ import { Container } from 'react-bootstrap';
 import './MealSlider.style.css';
 
 
-// 응답형 설정 정의
-
 const mealSlider = ({ data, title }) => {
   // 데이터가 없는 경우 예외 처리
   if (!data || !data.meals) {
