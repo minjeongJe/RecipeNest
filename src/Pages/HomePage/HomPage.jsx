@@ -6,14 +6,12 @@ import SeafoodMealSlide from './component/SeafoodMealSlide/SeafoodMealSlide'
 
 const HomPage = () => {
   return (
-    <div>
+    <>
       <Banner/>
       <BeefMealSlide/>
       <VeGanMealSlide/>
       <SeafoodMealSlide/>
-      <div>ㅎ</div>
-      <div>ㅎ</div>
-    </div>
+    </>
   )
 }
 

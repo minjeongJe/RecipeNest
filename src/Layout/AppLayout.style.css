@@ -285,6 +285,30 @@ footer{
   fill: #181717;
 }
 
+/* scroll-to-top 버튼 */
+.scroll-container {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  z-index: 1;
+  border: none;
+  background-color:transparent;
+}
+
+.ArrowUp-btn {
+  font-weight: bold;
+  font-size: 25px;
+  padding :15px;
+  background-color: #fff;
+  color:#1b1a1a;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    color :rgb(142, 26, 26);
+  }
+}
+
 /* 반응형 미디어 쿼리 */
 @media (max-width: 833px) {
   .nav-area {

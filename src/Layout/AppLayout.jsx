@@ -5,15 +5,41 @@ import { faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 import { faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from 'react';
 
 const AppLayout = () => {
+  
   const Navigate = useNavigate();
   const goToHomePage = () => {
     Navigate("/");
   }
 
+  const [showButton, setShowButton] = useState(false);
+  useEffect(()=> {
+    const handleShowButton = () => {
+      if(window.scrollY > 500){
+        setShowButton(true)
+      }else {
+        setShowButton(false)
+      }
+    }
+
+    window.addEventListener("scroll", handleShowButton)
+    return ()=> {
+      window.removeEventListener("scroll", handleShowButton)
+    }
+  },[])
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' //부드럽게 끌어올림.
+    })
+  }
+
   return (
     <div>
+      {/* Navbar */}
       <nav className="nav-container" role="navigation" aria-label="Main navigation">
         <div className="nav-area">
           <div className="logo-area" onClick={goToHomePage}>
@@ -51,9 +77,13 @@ const AppLayout = () => {
           <li><a href="/recipe" className="menu-items">Category</a></li>
         </ul>
       </nav>
+
+      {/* Main Content */}
       <div className="main-content">
         <Outlet /> 
       </div>
+
+      {/* Footer */}
       <footer className="footer-container">
         <div className="footer-layer1">
           <div>
@@ -101,6 +131,18 @@ const AppLayout = () => {
           </ul>
         </div>
       </footer>
+
+      {/* Back to Top 버튼 */}
+      {showButton && (
+        <button 
+          className="scroll-container" 
+          onClick={scrollToTop} 
+          aria-label="Scroll to top"
+        >
+          <FontAwesomeIcon icon={faArrowUp} className="ArrowUp-btn" />
+        </button>
+      )}
+
     </div>
   );
 };

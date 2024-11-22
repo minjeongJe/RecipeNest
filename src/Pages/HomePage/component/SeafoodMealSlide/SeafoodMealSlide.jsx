@@ -8,7 +8,6 @@ import { Alert } from 'react-bootstrap';
 import { responsive } from '../../../../constants/responsive';
 import MealSlider from '../../../../common/MealSlider/MealSlider';
 
-
 const SeafoodMealSlide = () => {
   const {data, isLoading, isError, error} = useSeafoodQuery();
 
