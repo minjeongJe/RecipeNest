@@ -1,0 +1,21 @@
+.recipes-container {
+    margin-top: 50px;
+}
+
+.recipes-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.all-recipes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.recipes-items {
+    display: flex;
+    justify-content: center;
+}

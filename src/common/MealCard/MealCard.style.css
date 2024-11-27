@@ -1,8 +1,10 @@
 .mealCard-container {
+    width: 100%; 
     max-width: 250px;
     height: 300px;
     border-radius: 20px;
     cursor: pointer;
+    padding: 0;
 }
 
 .mealCard-items > div {

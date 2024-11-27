@@ -1,39 +1,32 @@
-// import { useQuery } from "@tanstack/react-query";
-// import { api } from "../utils/api";
-
-// const fetchSearch = () => {
-//     return api.get(`search.php?s=${id}`)
-// }
-
-// export const useSearchQuery = () => {
-//     return useQuery({
-//         queryKey: ['Search'],
-//         queryFn: fetchSearch,
-//         select: (result) => result. data, 
-//     })
-// }
-
 import { useQuery } from "@tanstack/react-query";
 import { api } from "../utils/api";
 
-const fetchMealsSearch = (keyword) => {
-  // 첫 번째 요청: 이름으로 검색 (예: Arrabiata)
+const fetchMealSearch = async ({ keyword }) => {
+  if (!keyword) {
+    // 검색어가 없으면 기본 레시피 데이터 요청
+    const res = await api.get("search.php?s=");
+    return { searchByName: res.data.meals }; // 기본 데이터 반환
+  }
+
+  // 검색어가 있으면 검색 요청 수행
   const searchByName = api.get(`search.php?s=${keyword}`);
-  // 두 번째 요청: 첫 글자로 검색 (예: 'a')
   const searchByFirstLetter = api.get(`search.php?f=${keyword[0].toLowerCase()}`);
 
-  return Promise.all([searchByName, searchByFirstLetter]);
+  return Promise.all([searchByName, searchByFirstLetter]).then(([nameRes, letterRes]) => ({
+    searchByName: nameRes.data.meals || [], // 검색 결과
+    searchByFirstLetter: letterRes.data.meals || [],
+  }));
 };
 
-export const useMealsQuery = ({keyword}) => {
+export const useMealSearchQuery = ({ keyword = "" }) => {
   return useQuery({
-    queryKey: ['Meals-search', keyword],
-    queryFn: () => fetchMealsSearch(keyword),
+    queryKey: ["Meals-search", keyword],
+    queryFn: () => fetchMealSearch({ keyword }),
     select: (result) => {
-      const [searchByNameData, searchByFirstLetterData] = result;
+      // 검색 결과 처리
       return {
-        searchByName: searchByNameData.data,
-        searchByFirstLetter: searchByFirstLetterData.data,
+        searchByName: result.searchByName || [], // 기본 데이터 또는 검색 결과
+        searchByFirstLetter: result.searchByFirstLetter || [], // 검색된 첫 글자 데이터
       };
     },
   });

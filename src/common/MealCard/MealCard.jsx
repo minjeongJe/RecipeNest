@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 const MealCard = ({ meal }) => {
   const navigate = useNavigate();
+
+  // 디테일 페이지로 이동
   const goToDetailPage = (id) => {
     navigate(`/recipe/${id}`)
   }

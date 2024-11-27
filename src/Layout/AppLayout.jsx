@@ -9,10 +9,16 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from 'react';
 
 const AppLayout = () => {
-  
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
+  const [keyword, setKeyword] = useState("");
+  const searchByKeyword = (event) => {
+    event.preventDefault();
+    //url 바꿔주기
+    navigate(`/recipe?s=${keyword}&f=${keyword}`);
+  };
+
   const goToHomePage = () => {
-    Navigate("/");
+    navigate("/");
   }
 
   const [showButton, setShowButton] = useState(false);
@@ -30,6 +36,7 @@ const AppLayout = () => {
       window.removeEventListener("scroll", handleShowButton)
     }
   },[])
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -46,13 +53,18 @@ const AppLayout = () => {
             <img src={Logo} alt="RecipeNest Logo" className="logo"/>
             <h1 className="logo-name">RecipeNest</h1>
           </div>
-          <form className="search-area" role="search" aria-label="Search recipes">
+          <form className="search-area" role="search" aria-label="Search recipes" onSubmit={searchByKeyword}>
             <div className="search-container">
               <input
                 className="search-txt"
                 type="text"
                 placeholder="Please search for a recipe."
                 aria-label="Search input"
+                value={keyword}
+                onChange={(event) => {
+                  console.log("현재 검색어:", event.target.value);
+                  setKeyword(event.target.value);
+                }}
               />
               <button type="submit" className="search-btn" aria-label="Search button">
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -74,7 +86,8 @@ const AppLayout = () => {
           </ul>
         </div>
         <ul className="menu-list" role="menu" aria-label="Main categories">
-          <li><a href="/recipe" className="menu-items">Category</a></li>
+          <li><a href="/recipe" className="menu-items">Recipes</a></li>
+          <li><a href="/recipe/categories" className="menu-items">Category</a></li>
         </ul>
       </nav>
 
@@ -142,7 +155,6 @@ const AppLayout = () => {
           <FontAwesomeIcon icon={faArrowUp} className="ArrowUp-btn" />
         </button>
       )}
-
     </div>
   );
 };
